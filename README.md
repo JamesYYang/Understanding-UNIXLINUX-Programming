@@ -1,21 +1,17 @@
-Understanding-UNIXLINUX-Programming
-===================================
-…or create a new repository on the command line
+# Understanding-UNIXLINUX-Programming
+
+《Unix/Linux编程实践教程》源码
 
 
-touch README.md
-git init
-git add README.md
-git commit -m "first commit"
-git remote add origin https://github.com/yuzhidi/Understanding-UNIXLINUX-Programming.git
-git push -u origin master
-…or push an existing repository from the command line
+## How to run
 
+Change variable `chapter` and `execute` in `Makefile` to right value, then run with make.
 
-git remote add origin https://github.com/yuzhidi/Understanding-UNIXLINUX-Programming.git
-git push -u origin master
-…or import code from another repository
+```bash
 
-You can initialize this repository with code from a Subversion, Mercurial, or TFS project.
+make
 
-Import code
+make run
+
+```
+
