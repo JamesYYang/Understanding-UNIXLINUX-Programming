@@ -8,10 +8,10 @@
 #include <fcntl.h>
 #include <time.h>
 
-/* #define      SHOWHOST */
+ /* #define      SHOWHOST */
 
 void showtime(long);
-void show_info(struct utmp *);
+void show_info(struct utmp*);
 
 int main()
 {
@@ -35,7 +35,7 @@ int main()
  *                      in human readable form
  *                      * displays nothing if record has no user name
  */
-void show_info(struct utmp *utbufp)
+void show_info(struct utmp* utbufp)
 {
         if (utbufp->ut_type != USER_PROCESS)
                 return;
@@ -60,11 +60,11 @@ void showtime(long timeval)
  *      it to 12chars.
  */
 {
-        char *cp; /* to hold address of time      */
+        char* cp; /* to hold address of time      */
 
         cp = ctime(&timeval);      /* convert time to string       */
-                                   /* string looks like            */
-                                   /* Mon Feb  4 00:46:40 EST 1991 */
-                                   /* 0123456789012345.            */
+        /* string looks like            */
+        /* Mon Feb  4 00:46:40 EST 1991 */
+        /* 0123456789012345.            */
         printf("%12.12s", cp + 4); /* pick 12 chars from pos 4     */
 }

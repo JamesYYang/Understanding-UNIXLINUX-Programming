@@ -1,5 +1,5 @@
 chapter = 02
-execute = who1
+execute = cp1
 target = CH$(chapter)/$(execute).c
 
 all: clean build
