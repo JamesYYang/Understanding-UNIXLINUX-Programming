@@ -2,12 +2,14 @@
  *               from fork() and can execute any code they like,
  *               even fork().  Predict number of lines of output.
  */
+#include <stdio.h>
+#include <unistd.h>
 
-main()
+int main()
 {
-	printf("my pid is %d\n", getpid() );
+	printf("my pid is %d\n", getpid());
 	fork();
 	fork();
 	fork();
-	printf("my pid is %d\n", getpid() );
+	printf("my pid is %d\n", getpid());
 }

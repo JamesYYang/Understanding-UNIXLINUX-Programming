@@ -3,9 +3,10 @@
  *	by the different return values from fork()
  */
 
-#include	<stdio.h>
+#include <stdio.h>
+#include <unistd.h>
 
-main()
+int main()
 {
 	int	ret_from_fork, mypid;
 
@@ -16,5 +17,5 @@ main()
 
 	sleep(1);
 	printf("After: my pid is %d, fork() said %d\n",
-			getpid(), ret_from_fork);
+		getpid(), ret_from_fork);
 }

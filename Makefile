@@ -1,5 +1,5 @@
-chapter = 07
-execute = ticker_demo
+chapter = 08
+execute = waitdemo2
 target = CH$(chapter)/$(execute).c
 
 all: clean build

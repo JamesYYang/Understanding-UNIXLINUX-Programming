@@ -1,20 +1,26 @@
 /* waitdemo1.c - shows how parent pauses until child finishes
  */
 
-#include	<stdio.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <wait.h>
 
 #define	DELAY	2
 
-main()
+void child_code(int);
+void parent_code(int);
+
+int main()
 {
 	int  newpid;
-	void child_code(), parent_code();
+
 
 	printf("before: mypid is %d\n", getpid());
 
-	if ( (newpid = fork()) == -1 )
+	if ((newpid = fork()) == -1)
 		perror("fork");
-	else if ( newpid == 0 )
+	else if (newpid == 0)
 		child_code(DELAY);
 	else
 		parent_code(newpid);

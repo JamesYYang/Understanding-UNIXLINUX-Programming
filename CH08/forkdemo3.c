@@ -3,9 +3,10 @@
  *                it is a child or process
  */
 
-#include	<stdio.h>
+#include <stdio.h>
+#include <unistd.h>
 
-main()
+int main()
 {
 	int	fork_rv;
 
@@ -13,10 +14,10 @@ main()
 
 	fork_rv = fork();		/* create new process	*/
 
-	if ( fork_rv == -1 )		/* check for error	*/
+	if (fork_rv == -1)		/* check for error	*/
 		perror("fork");
 
-	else if ( fork_rv == 0 )
+	else if (fork_rv == 0)
 		printf("I am the child.  my pid=%d\n", getpid());
 	else
 		printf("I am the parent. my child is %d\n", fork_rv);
