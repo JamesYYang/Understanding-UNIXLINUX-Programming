@@ -4,6 +4,7 @@
  *	note     uses stat and pwd.h and grp.h
  *	BUG: try ls2 /tmp
  */
+ // #include "vmlinux.h"
 #include <stdio.h>
 #include <sys/types.h>
 #include <dirent.h>
