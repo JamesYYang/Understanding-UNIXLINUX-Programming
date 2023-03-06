@@ -1,5 +1,5 @@
-chapter = 02
-execute = cp1
+chapter = 03
+execute = ls2
 target = CH$(chapter)/$(execute).c
 
 all: clean build
