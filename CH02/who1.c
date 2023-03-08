@@ -8,39 +8,40 @@
 #include <stdlib.h>
 
 #define SHOWHOST /* include remote machine on output */
-void show_info(struct utmp* utbufp);
+void show_info(struct utmp *utbufp);
 
-int main() {
-	struct utmp current_record; /* read info into here       */
-	int utmpfd;					/* read from this descriptor */
-	int reclen = sizeof(current_record);
+int main()
+{
+    struct utmp current_record; /* read info into here       */
+    int utmpfd;                 /* read from this descriptor */
+    int reclen = sizeof(current_record);
 
-	if ((utmpfd = open(UTMP_FILE, O_RDONLY)) == -1)
-	{
-		perror(UTMP_FILE); /* UTMP_FILE is in utmp.h    */
-		exit(1);
-	}
+    if ((utmpfd = open(UTMP_FILE, O_RDONLY)) == -1)
+    {
+        perror(UTMP_FILE); /* UTMP_FILE is in utmp.h    */
+        exit(1);
+    }
 
-	while (read(utmpfd, &current_record, reclen) == reclen)
-		show_info(&current_record);
-	close(utmpfd);
-	return 0; /* went ok */
+    while (read(utmpfd, &current_record, reclen) == reclen)
+        show_info(&current_record);
+    close(utmpfd);
+    return 0; /* went ok */
 }
 /*
  *  show info()
  *	displays contents of the utmp struct in human readable form
  *	*note* these sizes should not be hardwired
  */
-void show_info(struct utmp* utbufp)
+void show_info(struct utmp *utbufp)
 {
-	printf("%-8.8s", utbufp->ut_name); /* the logname	*/
-	printf(" ");					   /* a space	*/
-	printf("%-8.8s", utbufp->ut_line); /* the tty	*/
-	printf(" ");					   /* a space	*/
-	printf("%10d", utbufp->ut_time);   /* login time	*/
-	printf(" ");					   /* a space	*/
+    printf("%-8.8s", utbufp->ut_name); /* the logname	*/
+    printf(" ");                       /* a space	*/
+    printf("%-8.8s", utbufp->ut_line); /* the tty	*/
+    printf(" ");                       /* a space	*/
+    printf("%10d", utbufp->ut_time);   /* login time	*/
+    printf(" ");                       /* a space	*/
 #ifdef SHOWHOST
-	printf("(%s)", utbufp->ut_host); /* the host	*/
+    printf("(%s)", utbufp->ut_host); /* the host	*/
 #endif
-	printf("\n"); /* newline	*/
+    printf("\n"); /* newline	*/
 }

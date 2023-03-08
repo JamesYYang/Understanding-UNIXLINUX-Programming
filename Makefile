@@ -1,5 +1,5 @@
-chapter = 08
-execute = waitdemo2
+chapter = 11
+execute = tinybc
 target = CH$(chapter)/$(execute).c
 
 all: clean build
