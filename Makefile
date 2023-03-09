@@ -1,5 +1,5 @@
 chapter = 11
-execute = tinybc
+execute = timeserv
 target = CH$(chapter)/$(execute).c
 
 all: clean build
